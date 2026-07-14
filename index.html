@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0d0d0d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Glam Studio Nibedita | Best Beauty Parlour in Kakatpur</title>
+    <meta name="description" content="Glam Studio Nibedita - Where Glamour Meets Grace. Best beauty parlour in Kakatpur offering hair, skin, and beauty treatments for men and women.">
+    <meta name="keywords" content="glam studio nibedita, beauty parlour kakatpur, salon kakatpur, unisex salon, bridal makeup, hair spa, facial, nibedita">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+            </div>
+            <span class="loader-text">Glam Studio</span>
+        </div>
+    </div>
+
+    <!-- Cursor Follower -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- Top Ribbon / Contact Bar -->
+    <div class="top-ribbon" id="topRibbon">
+        <div class="ribbon-container">
+            <div class="ribbon-left">
+                <a href="tel:+917978XXXXXX" class="ribbon-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 7978 XXXXXX</span>
+                </a>
+                <a href="mailto:glamstudionibedita@gmail.com" class="ribbon-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>glamstudionibedita@gmail.com</span>
+                </a>
+                <span class="ribbon-item ribbon-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Main Road, Kakatpur, Odisha</span>
+                </span>
+            </div>
+            <div class="ribbon-right">
+                <div class="ribbon-socials">
+                    <a href="https://www.facebook.com/glamstudionibedita" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/glamstudio_nibedita_official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@glamstudionibedita" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.threads.net/@glamstudio_nibedita_official" target="_blank" rel="noopener" aria-label="Threads"><i class="fab fa-threads"></i></a>
+                </div>
+                <span class="ribbon-item ribbon-hours">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Sat: 9AM - 9PM</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon" id="logoIcon"><i class="fas fa-sparkles"></i></span>
+                <span class="logo-text-group">
+                    <span class="logo-text">Glam <span class="accent">Studio</span></span>
+                    <span class="logo-tagline">by Nibedita</span>
+                </span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#shop">Beauty Store</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="tel:+917978XXXXXX" class="nav-phone"><i class="fas fa-phone-alt"></i></a>
+                <button class="cart-nav-btn" id="cartNavBtn" aria-label="Open cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <a href="#booking" class="btn-book">Book Appointment</a>
+            </div>
+            <!-- Mobile action row (cart + hamburger) -->
+            <div class="mobile-actions">
+                <button class="cart-nav-btn cart-nav-btn-mobile" id="cartNavBtnMobile" aria-label="Open cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge" id="cartBadgeMobile">0</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active" style="background-image: url('images/banner-1.jpg');" data-key="banner-1"></div>
+            <div class="hero-slide" style="background-image: url('images/banner-2.jpg');" data-key="banner-2"></div>
+            <div class="hero-slide" style="background-image: url('images/banner-3.jpg');" data-key="banner-3"></div>
+            <div class="hero-slide" style="background-image: url('images/banner-4.jpg');" data-key="banner-4"></div>
+        </div>
+        <div class="hero-bg-animation">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+            <div class="floating-shape shape-5"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">
+                <span class="title-line">Where <em>Glamour</em></span>
+                <span class="title-line">Meets <span class="accent">Grace</span></span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up">
+                Experience the finest hair, skin, and beauty treatments for both men and women at Glam Studio Nibedita, Kakatpur.
+            </p>
+            <div class="hero-cta" data-aos="fade-up">
+                <a href="#booking" class="btn btn-primary btn-glow">
+                    <span>Book Appointment</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#services" class="btn btn-glass">
+                    <span>View Services</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Marquee / Running Text -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>Hair Cutting</span><span class="marquee-dot"></span>
+                <span>Hair Spa</span><span class="marquee-dot"></span>
+                <span>Bridal Makeup</span><span class="marquee-dot"></span>
+                <span>Facials</span><span class="marquee-dot"></span>
+                <span>Nail Art</span><span class="marquee-dot"></span>
+                <span>Threading</span><span class="marquee-dot"></span>
+                <span>Hair Straightening</span><span class="marquee-dot"></span>
+                <span>Botox Treatment</span><span class="marquee-dot"></span>
+                <span>Manicure</span><span class="marquee-dot"></span>
+                <span>Pedicure</span><span class="marquee-dot"></span>
+                <span>Hair Cutting</span><span class="marquee-dot"></span>
+                <span>Hair Spa</span><span class="marquee-dot"></span>
+                <span>Bridal Makeup</span><span class="marquee-dot"></span>
+                <span>Facials</span><span class="marquee-dot"></span>
+                <span>Nail Art</span><span class="marquee-dot"></span>
+                <span>Threading</span><span class="marquee-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <div class="about-image-stack">
+                        <div class="about-img about-img-1">
+                            <img src="images/about-1.jpg" alt="Salon Interior" class="about-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="img-placeholder gradient-1" style="display:none;">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                        </div>
+                        <div class="about-img about-img-2">
+                            <img src="images/about-2.jpg" alt="Hair Styling" class="about-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="img-placeholder gradient-2" style="display:none;">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                        </div>
+                        <div class="about-img about-img-3">
+                            <img src="images/about-3.jpg" alt="Makeup" class="about-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="img-placeholder gradient-3" style="display:none;">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-floating-card">
+                        <div class="floating-card-icon"><i class="fas fa-heart"></i></div>
+                        <div class="floating-card-text">
+                            <span class="fc-number">5000+</span>
+                            <span class="fc-label">Happy Clients</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">About Us</span>
+                    <h2 class="section-heading">
+                        Where Glamour Meets <span class="accent">Grace</span>
+                    </h2>
+                    <p class="about-lead">
+                        At Glam Studio Nibedita, we believe that beauty is not just about appearance; it's about feeling your best from the inside out.
+                    </p>
+                    <p class="about-text">
+                        Our highly trained professionals are dedicated to offering the best in hair, skin, and beauty treatments for both men and women. Whether you're getting ready for a special occasion or need a relaxing day of self-care, we have you covered.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-medal"></i></div>
+                            <div>
+                                <h4>Expert Team</h4>
+                                <p>Highly trained professionals</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-gem"></i></div>
+                            <div>
+                                <h4>Premium Products</h4>
+                                <p>Only the best for you</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#services" class="btn btn-primary">
+                        <span>Explore Services</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-heading">
+                    Expert Care for Your <span class="accent">Hair, Skin &amp; Body</span>
+                </h2>
+                <p class="section-subtext">We offer a wide range of services designed to meet your beauty and wellness needs. Explore our specialized treatments.</p>
+            </div>
+            <div class="services-grid">
+
+                <div class="service-card" data-tilt data-svckey="svc-haircut">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-haircut" src="images/services/haircut.jpg" alt="Hair Cutting & Styling"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-01"><i class="fas fa-cut"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">01</div>
+                    <div class="service-icon-wrap"><i class="fas fa-cut"></i></div>
+                    <h3>Hair Cutting &amp; Styling</h3>
+                    <p>Custom haircuts and innovative styles for a look that's uniquely yours.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="service-card" data-tilt data-svckey="svc-hairspa">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-hairspa" src="images/hairspa.jpg" alt="Hair Spa Treatment"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-02"><i class="fas fa-spa"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">02</div>
+                    <div class="service-icon-wrap"><i class="fas fa-spa"></i></div>
+                    <h3>Hair Spa Treatment</h3>
+                    <p>Rejuvenate your hair with our nourishing and revitalizing treatments.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="service-card" data-tilt data-svckey="svc-bridal">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-bridal" src="images/services/bridal.jpg" alt="Bridal & Party Makeup"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-03"><i class="fas fa-gem"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">03</div>
+                    <div class="service-icon-wrap"><i class="fas fa-gem"></i></div>
+                    <h3>Bridal &amp; Party Makeup</h3>
+                    <p>Look stunning for any special occasion with our professional makeup services.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="service-card" data-tilt data-svckey="svc-nails">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-nails" src="images/services/nails.jpg" alt="Nail Paint"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-04"><i class="fas fa-paint-brush"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">04</div>
+                    <div class="service-icon-wrap"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Nail Paint</h3>
+                    <p>Perfect nails with our extensive manicure and pedicure options.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="service-card" data-tilt data-svckey="svc-facial">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-facial" src="images/services/facial.jpg" alt="Facials & Skin Care"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-05"><i class="fas fa-leaf"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">05</div>
+                    <div class="service-icon-wrap"><i class="fas fa-leaf"></i></div>
+                    <h3>Facials &amp; Skin Care</h3>
+                    <p>Glowing, healthy skin with our tailored facial treatments.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="service-card" data-tilt data-svckey="svc-manicure">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-manicure" src="images/services/manicure.jpg" alt="Manicures & Pedicures"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-06"><i class="fas fa-hand-sparkles"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">06</div>
+                    <div class="service-icon-wrap"><i class="fas fa-hand-sparkles"></i></div>
+                    <h3>Manicures &amp; Pedicures</h3>
+                    <p>Pamper your hands and feet with the best care.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="service-card" data-tilt data-svckey="svc-straightening">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-straightening" src="images/services/straightening.jpg" alt="Hair Straightening"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-07"><i class="fas fa-magic"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">07</div>
+                    <div class="service-icon-wrap"><i class="fas fa-magic"></i></div>
+                    <h3>Hair Straightening</h3>
+                    <p>Permanent hair straightening for a sleek, smooth look that lasts.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="service-card" data-tilt data-svckey="svc-botox">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-botox" src="images/services/botox.jpg" alt="Botox Treatment"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-08"><i class="fas fa-syringe"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">08</div>
+                    <div class="service-icon-wrap"><i class="fas fa-syringe"></i></div>
+                    <h3>Botox Treatment</h3>
+                    <p>Revitalize your youthful appearance with expert Botox services.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="service-card" data-tilt data-svckey="svc-threading">
+                    <div class="svc-img-wrap">
+                        <img class="svc-img" data-svckey="svc-threading" src="images/services/threading.jpg" alt="Threading"
+                             onerror="this.style.display='none';">
+                        <div class="svc-img-placeholder svc-placeholder-09"><i class="fas fa-eye"></i></div>
+                    </div>
+                    <div class="service-card-bg"></div>
+                    <div class="service-number">09</div>
+                    <div class="service-icon-wrap"><i class="fas fa-eye"></i></div>
+                    <h3>Threading</h3>
+                    <p>Precision eyebrow shaping and facial threading for a clean look.</p>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us section" id="why-us">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-heading">
+                    What Makes Us <span class="accent">Special</span>
+                </h2>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <div class="icon-ring"></div>
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Expert Professionals</h3>
+                    <p>Our team consists of highly trained stylists, beauticians, and therapists who stay updated with the latest trends.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <div class="icon-ring"></div>
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Premium Products</h3>
+                    <p>We use only the best beauty products for all treatments to ensure quality results every time.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <div class="icon-ring"></div>
+                        <i class="fas fa-venus-mars"></i>
+                    </div>
+                    <h3>Unisex Services</h3>
+                    <p>Inclusive services for both men and women under one roof, making beauty accessible to everyone.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <div class="icon-ring"></div>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Personalized Care</h3>
+                    <p>We take the time to understand your unique preferences and needs for a truly customized experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Our Gallery</span>
+                <h2 class="section-heading">
+                    Beauty in Every <span class="accent">Detail</span>
+                </h2>
+            </div>
+            <div class="gallery-masonry">
+                <div class="gallery-item gi-tall">
+                    <img src="images/gallery-1.jpg" alt="Hair Styling" class="gallery-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-img gradient-gallery-1" style="display:none;">
+                        <i class="fas fa-image"></i>
+                        <span>Hair Styling</span>
+                    </div>
+                    <div class="gallery-hover">
+                        <div class="gh-content">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Hair Styling</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-2.jpg" alt="Bridal Look" class="gallery-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-img gradient-gallery-2" style="display:none;">
+                        <i class="fas fa-image"></i>
+                        <span>Bridal Look</span>
+                    </div>
+                    <div class="gallery-hover">
+                        <div class="gh-content">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Bridal Look</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-3.jpg" alt="Skin Care" class="gallery-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-img gradient-gallery-3" style="display:none;">
+                        <i class="fas fa-image"></i>
+                        <span>Skin Care</span>
+                    </div>
+                    <div class="gallery-hover">
+                        <div class="gh-content">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Skin Care</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item gi-wide">
+                    <img src="images/gallery-4.jpg" alt="Salon Interior" class="gallery-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-img gradient-gallery-4" style="display:none;">
+                        <i class="fas fa-image"></i>
+                        <span>Salon Interior</span>
+                    </div>
+                    <div class="gallery-hover">
+                        <div class="gh-content">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Salon Interior</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-5.jpg" alt="Nail Art" class="gallery-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-img gradient-gallery-5" style="display:none;">
+                        <i class="fas fa-image"></i>
+                        <span>Nail Art</span>
+                    </div>
+                    <div class="gallery-hover">
+                        <div class="gh-content">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Nail Art</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-6.jpg" alt="Makeup" class="gallery-img-real" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-img gradient-gallery-6" style="display:none;">
+                        <i class="fas fa-image"></i>
+                        <span>Makeup</span>
+                    </div>
+                    <div class="gallery-hover">
+                        <div class="gh-content">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Makeup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-heading">
+                    What Our Clients <span class="accent">Say</span>
+                </h2>
+            </div>
+            <div class="testimonials-wrapper">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text">Best salon in Kakatpur! The staff is incredibly professional and friendly. My bridal makeup was absolutely stunning and everyone complimented my look.</p>
+                        <div class="testimonial-author">
+                            <div class="ta-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>Priyanka M.</h4>
+                                <span>Bridal Client</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text">Amazing hair spa experience! My hair feels so much healthier and looks incredible. The ambiance is very clean and luxurious. Will definitely come back.</p>
+                        <div class="testimonial-author">
+                            <div class="ta-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>Sneha D.</h4>
+                                <span>Hair Spa Client</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text">I've been coming here for years. The haircuts are always perfect and the team really listens to what you want. Best grooming experience in the area.</p>
+                        <div class="testimonial-author">
+                            <div class="ta-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>Rajesh K.</h4>
+                                <span>Regular Client</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="tc-btn tc-prev" id="tcPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <div class="tc-dots" id="tcDots"></div>
+                    <button class="tc-btn tc-next" id="tcNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / CTA Section -->
+    <section class="booking section" id="booking">
+        <div class="booking-bg-shapes">
+            <div class="booking-shape bs-1"></div>
+            <div class="booking-shape bs-2"></div>
+        </div>
+        <div class="container">
+            <div class="booking-wrapper">
+                <div class="booking-content">
+                    <span class="section-tag section-tag-light">Book Your Appointment</span>
+                    <h2 class="section-heading light">
+                        Ready to Experience the Best in <span class="accent">Beauty &amp; Wellness?</span>
+                    </h2>
+                    <p class="booking-desc">
+                        Don't wait! Book your appointment today and step into a world of elegance and care. We're here to make you look and feel your best.
+                    </p>
+                    <div class="booking-features">
+                        <div class="bf-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Easy Online Booking</span>
+                        </div>
+                        <div class="bf-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Flexible Scheduling</span>
+                        </div>
+                        <div class="bf-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No Waiting Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="booking-form-card">
+                    <h3>Schedule Your Visit</h3>
+                    <form class="booking-form" id="bookingForm">
+                        <div class="form-group">
+                            <input type="text" id="bk-name" placeholder=" " required>
+                            <label for="bk-name">Your Name</label>
+                            <span class="form-icon"><i class="fas fa-user"></i></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="bk-phone" placeholder=" " required>
+                            <label for="bk-phone">Phone Number</label>
+                            <span class="form-icon"><i class="fas fa-phone"></i></span>
+                        </div>
+                        <div class="form-group">
+                            <select id="bk-service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="haircut">Hair Cutting &amp; Styling</option>
+                                <option value="hairspa">Hair Spa Treatment</option>
+                                <option value="bridal">Bridal &amp; Party Makeup</option>
+                                <option value="nails">Nail Paint / Manicure</option>
+                                <option value="facial">Facials &amp; Skin Care</option>
+                                <option value="pedicure">Pedicure</option>
+                                <option value="straightening">Hair Straightening</option>
+                                <option value="botox">Botox Treatment</option>
+                                <option value="threading">Threading</option>
+                            </select>
+                            <span class="form-icon"><i class="fas fa-concierge-bell"></i></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" id="bk-date" required>
+                            <label for="bk-date" class="date-label">Preferred Date</label>
+                            <span class="form-icon"><i class="fas fa-calendar"></i></span>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Confirm Booking</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Location Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-heading">Visit Our <span class="accent">Salon</span></h2>
+                    <p class="contact-desc">We'd love to welcome you to Glam Studio Nibedita. Drop by or give us a call to schedule your next visit.</p>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="cc-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Our Location</h4>
+                                <p>Main Road, Kakatpur<br>Puri District, Odisha - 752108</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="cc-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h4>Working Hours</h4>
+                                <p>Mon - Sat: 9:00 AM - 9:00 PM<br>Sunday: 10:00 AM - 7:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="cc-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>+91 7978 XXXXXX</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/glamstudionibedita" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/glamstudio_nibedita_official/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@glamstudionibedita" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.threads.net/@glamstudio_nibedita_official" target="_blank" rel="noopener" class="social-btn" aria-label="Threads"><i class="fab fa-threads"></i></a>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14978.86!2d86.19!3d20.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19b8a0d47bcf71%3A0xf2f2ce9ee1b86c82!2sKakatpur%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                        width="100%" height="100%" style="border:0; border-radius: 24px;" 
+                        allowfullscreen="" loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Glam Studio Nibedita Location Map">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BEAUTY STORE SECTION ===== -->
+    <section class="shop section" id="shop">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Beauty Store</span>
+                <h2 class="section-heading">Beauty <span class="accent">Store</span></h2>
+                <p class="section-subtext">Premium face creams, lotions, serums and beauty essentials — available to buy directly from the salon.</p>
+            </div>
+
+            <!-- Shop Search Bar -->
+            <div class="shop-search-wrap">
+                <div class="shop-search-box">
+                    <i class="fas fa-search shop-search-icon"></i>
+                    <input
+                        type="text"
+                        id="shopSearchInput"
+                        class="shop-search-input"
+                        placeholder="Search products — e.g. face cream, hair mask…"
+                        autocomplete="off"
+                        aria-label="Search products"
+                    >
+                    <button class="shop-search-clear" id="shopSearchClear" aria-label="Clear search" style="display:none;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <span class="shop-search-count" id="shopSearchCount"></span>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="shop-filter">
+                <button class="shop-filter-btn active" data-filter="all">All Products</button>
+                <button class="shop-filter-btn" data-filter="face">Face Care</button>
+                <button class="shop-filter-btn" data-filter="hair">Hair Care</button>
+                <button class="shop-filter-btn" data-filter="body">Body Care</button>
+                <button class="shop-filter-btn" data-filter="makeup">Makeup</button>
+            </div>
+
+            <!-- Products Grid - rendered dynamically by script.js from localStorage -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products are injected here by script.js (sourced from admin panel) -->
+            </div><!-- /products-grid -->
+        </div>
+    </section>
+
+    <!-- ===== CART SIDEBAR ===== -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping Cart">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="cart-close" id="cartClose" aria-label="Close cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your cart is empty</p>
+                <a href="#shop" class="btn btn-primary" id="cartShopLink">Browse Products</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total">
+                <span>Total</span>
+                <span class="cart-total-price" id="cartTotalPrice">&#8377;0</span>
+            </div>
+            <p class="cart-note"><i class="fas fa-info-circle"></i> Orders are processed via WhatsApp. We'll confirm availability &amp; arrange delivery/pickup.</p>
+            <button class="btn-checkout" id="checkoutBtn">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+            </button>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,50 C360,100 720,0 1080,50 C1260,75 1380,50 1440,50 L1440,100 L0,100 Z" fill="currentColor"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <span class="logo-text">Glam <span class="accent">Studio</span></span>
+                    </a>
+                    <p>Your premier beauty destination in Kakatpur by Nibedita. Where glamour meets grace, and every visit leaves you feeling your best.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/glamstudionibedita" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/glamstudio_nibedita_official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@glamstudionibedita" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.threads.net/@glamstudio_nibedita_official" target="_blank" rel="noopener" aria-label="Threads"><i class="fab fa-threads"></i></a>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Hair Cutting &amp; Styling</a></li>
+                        <li><a href="#services">Bridal Makeup</a></li>
+                        <li><a href="#services">Facials &amp; Skin Care</a></li>
+                        <li><a href="#services">Hair Straightening</a></li>
+                        <li><a href="#services">Threading</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Main Road, Kakatpur, Odisha</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 7978 XXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> glamstudionibedita@gmail.com</p>
+                    <p><i class="fab fa-instagram"></i> @glamstudio_nibedita_official</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2024</span> Glam Studio Nibedita, Kakatpur. All Rights Reserved.</p>
+                <p class="footer-credit">Crafted with <i class="fas fa-heart"></i> for beauty lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/917978XXXXXX" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat with us!</span>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+        <svg class="progress-ring" width="48" height="48">
+            <circle class="progress-ring-circle" cx="24" cy="24" r="20" fill="none" stroke-width="2"></circle>
+        </svg>
+    </button>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-card">
+            <div class="modal-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>Booking Confirmed!</h3>
+            <p>Thank you for choosing Glam Studio Nibedita. We'll contact you shortly to confirm your appointment.</p>
+            <button class="btn btn-primary modal-close" id="modalClose">
+                <span>Great!</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

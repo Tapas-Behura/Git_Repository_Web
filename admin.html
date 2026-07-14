@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Glam Studio Nibedita</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ========== LOGIN PAGE ========== -->
+<div class="login-page" id="loginPage">
+    <div class="login-bg">
+        <div class="login-shape s1"></div>
+        <div class="login-shape s2"></div>
+        <div class="login-shape s3"></div>
+    </div>
+    <div class="login-card">
+        <div class="login-logo">
+            <i class="fas fa-sparkles"></i>
+            <span>Glam <b>Studio</b></span>
+            <small>Admin Panel</small>
+        </div>
+        <h2>Welcome Back</h2>
+        <p class="login-sub">Sign in to manage your store</p>
+        <form id="loginForm" novalidate>
+            <div class="field-group">
+                <label for="adminUser">Username</label>
+                <div class="field-wrap">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="adminUser" placeholder="Enter username" autocomplete="username" required>
+                </div>
+            </div>
+            <div class="field-group">
+                <label for="adminPass">Password</label>
+                <div class="field-wrap">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="adminPass" placeholder="Enter password" autocomplete="current-password" required>
+                    <button type="button" class="toggle-pass" id="togglePass" aria-label="Show password">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="login-error" id="loginError"></div>
+            <button type="submit" class="btn-login" id="loginBtn">
+                <span>Sign In</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
+        <a href="index.html" class="back-to-site"><i class="fas fa-arrow-left"></i> Back to Website</a>
+    </div>
+</div>
+
+<!-- ========== ADMIN DASHBOARD ========== -->
+<div class="admin-layout" id="adminDashboard" style="display:none;">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-logo">
+            <i class="fas fa-sparkles"></i>
+            <span>Glam<b>Studio</b></span>
+        </div>
+        <nav class="sidebar-nav">
+            <button class="nav-item active" data-panel="products">
+                <i class="fas fa-box-open"></i><span>Products</span>
+            </button>
+            <button class="nav-item" data-panel="photos">
+                <i class="fas fa-images"></i><span>Site Photos</span>
+            </button>
+            <button class="nav-item" data-panel="settings">
+                <i class="fas fa-cog"></i><span>Settings</span>
+            </button>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item" target="_blank">
+                <i class="fas fa-eye"></i><span>View Site</span>
+            </a>
+            <button class="nav-item logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Mobile sidebar toggle -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+        <!-- Top Bar -->
+        <header class="admin-topbar">
+            <div class="topbar-left">
+                <h1 class="page-title" id="pageTitle">Products</h1>
+            </div>
+            <div class="topbar-right">
+                <span class="admin-greeting">Hello, <b>Admin</b> 👋</span>
+            </div>
+        </header>
+
+        <!-- ===== PRODUCTS PANEL ===== -->
+        <div class="admin-panel active" id="panel-products">
+            <div class="panel-toolbar">
+                <div class="toolbar-left">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="productSearch" placeholder="Search products...">
+                    </div>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="face">Face Care</option>
+                        <option value="hair">Hair Care</option>
+                        <option value="body">Body Care</option>
+                        <option value="makeup">Makeup</option>
+                    </select>
+                </div>
+                <button class="btn-admin-primary" id="addProductBtn">
+                    <i class="fas fa-plus"></i> Add Product
+                </button>
+            </div>
+
+            <!-- Products Table -->
+            <div class="admin-table-wrap">
+                <table class="admin-table" id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Size</th>
+                            <th>Badge</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody"></tbody>
+                </table>
+                <div class="table-empty" id="tableEmpty" style="display:none;">
+                    <i class="fas fa-box-open"></i>
+                    <p>No products found.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PHOTOS PANEL ===== -->
+        <div class="admin-panel" id="panel-photos">
+            <div class="photos-grid-admin">
+
+                <!-- Logo -->
+                <div class="photo-section">
+                    <h3><i class="fas fa-circle-notch"></i> Salon Logo</h3>
+                    <p class="photo-hint">Round logo shown in the navigation bar. Recommended: square image, at least 200×200px.</p>
+                    <div class="photo-slots">
+                        <div class="photo-slot photo-slot-lg" data-key="site-logo">
+                            <div class="slot-preview slot-preview-round" id="prev-site-logo"></div>
+                            <span class="slot-label">Logo</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="site-logo"></label>
+                            <button class="slot-remove-btn" data-target="site-logo"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner Slides -->
+                <div class="photo-section">
+                    <h3><i class="fas fa-images"></i> Hero Banner Slides</h3>
+                    <p class="photo-hint">These images rotate automatically on the homepage. Ideal size: 1920×1080px.</p>
+                    <div class="photo-slots" id="bannerSlots">
+                        <div class="photo-slot" data-key="banner-1">
+                            <div class="slot-preview" id="prev-banner-1"></div>
+                            <span class="slot-label">Banner 1</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="banner-1"></label>
+                            <button class="slot-remove-btn" data-target="banner-1"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="banner-2">
+                            <div class="slot-preview" id="prev-banner-2"></div>
+                            <span class="slot-label">Banner 2</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="banner-2"></label>
+                            <button class="slot-remove-btn" data-target="banner-2"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="banner-3">
+                            <div class="slot-preview" id="prev-banner-3"></div>
+                            <span class="slot-label">Banner 3</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="banner-3"></label>
+                            <button class="slot-remove-btn" data-target="banner-3"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="banner-4">
+                            <div class="slot-preview" id="prev-banner-4"></div>
+                            <span class="slot-label">Banner 4</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="banner-4"></label>
+                            <button class="slot-remove-btn" data-target="banner-4"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Photos -->
+                <div class="photo-section">
+                    <h3><i class="fas fa-th"></i> Gallery Photos</h3>
+                    <p class="photo-hint">6 photos shown in the gallery section. Mix portrait and landscape shots.</p>
+                    <div class="photo-slots" id="gallerySlots">
+                        <div class="photo-slot" data-key="gallery-1">
+                            <div class="slot-preview" id="prev-gallery-1"></div>
+                            <span class="slot-label">Hair Styling</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="gallery-1"></label>
+                            <button class="slot-remove-btn" data-target="gallery-1"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="gallery-2">
+                            <div class="slot-preview" id="prev-gallery-2"></div>
+                            <span class="slot-label">Bridal Look</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="gallery-2"></label>
+                            <button class="slot-remove-btn" data-target="gallery-2"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="gallery-3">
+                            <div class="slot-preview" id="prev-gallery-3"></div>
+                            <span class="slot-label">Skin Care</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="gallery-3"></label>
+                            <button class="slot-remove-btn" data-target="gallery-3"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="gallery-4">
+                            <div class="slot-preview" id="prev-gallery-4"></div>
+                            <span class="slot-label">Salon Interior</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="gallery-4"></label>
+                            <button class="slot-remove-btn" data-target="gallery-4"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="gallery-5">
+                            <div class="slot-preview" id="prev-gallery-5"></div>
+                            <span class="slot-label">Nail Art</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="gallery-5"></label>
+                            <button class="slot-remove-btn" data-target="gallery-5"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="gallery-6">
+                            <div class="slot-preview" id="prev-gallery-6"></div>
+                            <span class="slot-label">Makeup</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="gallery-6"></label>
+                            <button class="slot-remove-btn" data-target="gallery-6"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card Photos -->
+                <div class="photo-section">
+                    <h3><i class="fas fa-concierge-bell"></i> Service Card Photos</h3>
+                    <p class="photo-hint">Photos shown at the top of each service card. Recommended size: 600×400px.</p>
+                    <div class="photo-slots">
+                        <div class="photo-slot" data-key="svc-haircut">
+                            <div class="slot-preview" id="prev-svc-haircut"></div>
+                            <span class="slot-label">Hair Cutting</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-haircut"></label>
+                            <button class="slot-remove-btn" data-target="svc-haircut"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="svc-hairspa">
+                            <div class="slot-preview" id="prev-svc-hairspa"></div>
+                            <span class="slot-label">Hair Spa</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-hairspa"></label>
+                            <button class="slot-remove-btn" data-target="svc-hairspa"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="svc-bridal">
+                            <div class="slot-preview" id="prev-svc-bridal"></div>
+                            <span class="slot-label">Bridal Makeup</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-bridal"></label>
+                            <button class="slot-remove-btn" data-target="svc-bridal"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="svc-nails">
+                            <div class="slot-preview" id="prev-svc-nails"></div>
+                            <span class="slot-label">Nail Paint</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-nails"></label>
+                            <button class="slot-remove-btn" data-target="svc-nails"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="svc-facial">
+                            <div class="slot-preview" id="prev-svc-facial"></div>
+                            <span class="slot-label">Facials</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-facial"></label>
+                            <button class="slot-remove-btn" data-target="svc-facial"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="svc-manicure">
+                            <div class="slot-preview" id="prev-svc-manicure"></div>
+                            <span class="slot-label">Manicure/Pedicure</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-manicure"></label>
+                            <button class="slot-remove-btn" data-target="svc-manicure"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="svc-straightening">
+                            <div class="slot-preview" id="prev-svc-straightening"></div>
+                            <span class="slot-label">Hair Straightening</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-straightening"></label>
+                            <button class="slot-remove-btn" data-target="svc-straightening"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="svc-botox">
+                            <div class="slot-preview" id="prev-svc-botox"></div>
+                            <span class="slot-label">Botox Treatment</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-botox"></label>
+                            <button class="slot-remove-btn" data-target="svc-botox"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="svc-threading">
+                            <div class="slot-preview" id="prev-svc-threading"></div>
+                            <span class="slot-label">Threading</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="svc-threading"></label>
+                            <button class="slot-remove-btn" data-target="svc-threading"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Photos -->
+                <div class="photo-section">
+                    <h3><i class="fas fa-user-circle"></i> About Section Photos</h3>
+                    <p class="photo-hint">3 stacked photos shown in the About Us section.</p>
+                    <div class="photo-slots" id="aboutSlots">
+                        <div class="photo-slot" data-key="about-1">
+                            <div class="slot-preview" id="prev-about-1"></div>
+                            <span class="slot-label">About 1 (Main)</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="about-1"></label>
+                            <button class="slot-remove-btn" data-target="about-1"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="about-2">
+                            <div class="slot-preview" id="prev-about-2"></div>
+                            <span class="slot-label">About 2</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="about-2"></label>
+                            <button class="slot-remove-btn" data-target="about-2"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="photo-slot" data-key="about-3">
+                            <div class="slot-preview" id="prev-about-3"></div>
+                            <span class="slot-label">About 3</span>
+                            <label class="slot-upload-btn"><i class="fas fa-upload"></i> Upload<input type="file" accept="image/*" data-target="about-3"></label>
+                            <button class="slot-remove-btn" data-target="about-3"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== SETTINGS PANEL ===== -->
+        <div class="admin-panel" id="panel-settings">
+            <div class="settings-card">
+                <h3><i class="fas fa-key"></i> Change Admin Password</h3>
+                <form id="changePassForm">
+                    <div class="field-group">
+                        <label>Current Password</label>
+                        <div class="field-wrap"><i class="fas fa-lock"></i>
+                            <input type="password" id="currentPass" placeholder="Current password" required>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>New Password</label>
+                        <div class="field-wrap"><i class="fas fa-lock"></i>
+                            <input type="password" id="newPass" placeholder="New password (min 6 chars)" required minlength="6">
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>Confirm New Password</label>
+                        <div class="field-wrap"><i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPass" placeholder="Confirm new password" required>
+                        </div>
+                    </div>
+                    <div class="settings-msg" id="settingsMsg"></div>
+                    <button type="submit" class="btn-admin-primary">
+                        <i class="fas fa-save"></i> Update Password
+                    </button>
+                </form>
+            </div>
+            <div class="settings-card">
+                <h3><i class="fas fa-database"></i> Data Management</h3>
+                <p>Export or reset your product data.</p>
+                <div class="settings-actions">
+                    <button class="btn-admin-secondary" id="exportDataBtn">
+                        <i class="fas fa-download"></i> Export Products (JSON)
+                    </button>
+                    <button class="btn-admin-danger" id="resetDataBtn">
+                        <i class="fas fa-redo"></i> Reset to Defaults
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<!-- ===== PRODUCT MODAL ===== -->
+<div class="modal-bg" id="productModalBg">
+    <div class="admin-modal" id="productModal">
+        <div class="modal-header">
+            <h3 id="modalTitle">Add Product</h3>
+            <button class="modal-close-btn" id="closeProductModal"><i class="fas fa-times"></i></button>
+        </div>
+        <form id="productForm" novalidate>
+            <input type="hidden" id="productId">
+            <div class="modal-body">
+                <div class="modal-two-col">
+                    <div class="field-group">
+                        <label>Product Name <span class="req">*</span></label>
+                        <input type="text" id="pName" placeholder="e.g. Brightening Face Cream" required>
+                    </div>
+                    <div class="field-group">
+                        <label>Category <span class="req">*</span></label>
+                        <select id="pCategory" required>
+                            <option value="">Select category</option>
+                            <option value="face">Face Care</option>
+                            <option value="hair">Hair Care</option>
+                            <option value="body">Body Care</option>
+                            <option value="makeup">Makeup</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-two-col">
+                    <div class="field-group">
+                        <label>Price (₹) <span class="req">*</span></label>
+                        <input type="number" id="pPrice" placeholder="e.g. 599" min="1" required>
+                    </div>
+                    <div class="field-group">
+                        <label>Discount (%) <span class="req-hint">0 = no discount</span></label>
+                        <input type="number" id="pDiscount" placeholder="e.g. 20" min="0" max="99" value="0">
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label>Size / Weight</label>
+                    <input type="text" id="pSize" placeholder="e.g. 50ml, 150g">
+                </div>
+                <div class="field-group">
+                    <label>Description</label>
+                    <textarea id="pDesc" rows="3" placeholder="Short product description..."></textarea>
+                </div>
+                <div class="modal-two-col">
+                    <div class="field-group">
+                        <label>Badge (optional)</label>
+                        <select id="pBadge">
+                            <option value="">None</option>
+                            <option value="Best Seller">Best Seller</option>
+                            <option value="New">New</option>
+                            <option value="Popular">Popular</option>
+                            <option value="Sale">Sale</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label>Star Rating (1–5)</label>
+                        <input type="number" id="pStars" placeholder="5" min="1" max="5" value="5">
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label>Product Image</label>
+                    <div class="img-upload-area" id="imgUploadArea">
+                        <div class="img-upload-preview" id="imgUploadPreview">
+                            <i class="fas fa-image"></i>
+                            <span>Click or drag to upload</span>
+                        </div>
+                        <input type="file" id="pImageFile" accept="image/*" style="display:none;">
+                        <input type="hidden" id="pImageData">
+                        <div class="img-upload-actions" id="imgUploadActions" style="display:none;">
+                            <button type="button" class="btn-admin-secondary btn-sm" id="changeImgBtn"><i class="fas fa-redo"></i> Change</button>
+                            <button type="button" class="btn-admin-danger btn-sm" id="removeImgBtn"><i class="fas fa-trash"></i> Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-error" id="productFormError"></div>
+                <button type="button" class="btn-admin-secondary" id="cancelProductBtn">Cancel</button>
+                <button type="submit" class="btn-admin-primary" id="saveProductBtn">
+                    <i class="fas fa-save"></i> Save Product
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ===== DELETE CONFIRM MODAL ===== -->
+<div class="modal-bg" id="deleteModalBg">
+    <div class="admin-modal admin-modal-sm">
+        <div class="modal-header">
+            <h3>Delete Product</h3>
+            <button class="modal-close-btn" id="closeDeleteModal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="delete-confirm-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <p>Are you sure you want to delete <strong id="deleteProductName"></strong>? This cannot be undone.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-admin-secondary" id="cancelDeleteBtn">Cancel</button>
+            <button class="btn-admin-danger" id="confirmDeleteBtn"><i class="fas fa-trash"></i> Delete</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast notification -->
+<div class="admin-toast" id="adminToast"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>
