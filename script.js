@@ -108,6 +108,20 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // ========== Scroll Lock (iOS + Android safe) ==========
+    function lockScroll() {
+        const scrollY = window.scrollY;
+        document.documentElement.style.setProperty('--scroll-y', scrollY + 'px');
+        document.body.classList.add('scroll-locked');
+    }
+
+    function unlockScroll() {
+        const scrollY = parseInt(document.documentElement.style.getPropertyValue('--scroll-y') || '0');
+        document.body.classList.remove('scroll-locked');
+        document.body.style.top = '';
+        window.scrollTo(0, scrollY);
+    }
+
     // ========== Mobile Navigation ==========
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -115,7 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        if (navLinks.classList.contains('active')) {
+            lockScroll();
+        } else {
+            unlockScroll();
+        }
     });
 
     // Close on link click
@@ -123,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
-            document.body.style.overflow = '';
+            unlockScroll();
         });
     });
 
@@ -624,8 +642,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkoutBtn  = document.getElementById('checkoutBtn');
     const cartShopLink = document.getElementById('cartShopLink');
 
-    function openCart()  { cartSidebar.classList.add('open'); cartOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeCart() { cartSidebar.classList.remove('open'); cartOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+    function openCart() {
+        cartSidebar.classList.add('open');
+        cartOverlay.classList.add('active');
+        lockScroll();
+    }
+
+    function closeCart() {
+        cartSidebar.classList.remove('open');
+        cartOverlay.classList.remove('active');
+        unlockScroll();
+    }
 
     cartNavBtn.addEventListener('click', openCart);
     cartClose.addEventListener('click', closeCart);

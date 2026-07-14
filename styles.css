@@ -49,6 +49,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
+    /* Do NOT set overflow-x on html — breaks position:fixed and y-scroll on Android */
 }
 
 body {
@@ -58,6 +59,7 @@ body {
     color: var(--text);
     background: var(--white);
     overflow-x: hidden;
+    overflow-y: auto; /* explicitly allow vertical scroll */
     cursor: default;
 }
 
@@ -2037,9 +2039,20 @@ a.ribbon-item:hover {
    ============================================ */
 
 /* ---- Prevent horizontal scroll on all devices ---- */
-html, body {
-    overflow-x: hidden;
+/* overflow-x: hidden is already set on body above — -webkit-text-size-adjust added here */
+body {
     -webkit-text-size-adjust: 100%; /* prevent iOS font scaling on rotate */
+}
+
+/* ---- Scroll lock — used when nav menu or cart is open ---- */
+/* Uses position:fixed trick which works on iOS Safari (unlike overflow:hidden) */
+body.scroll-locked {
+    overflow: hidden;
+    /* On iOS, overflow:hidden alone doesn't work — position fixed is needed */
+    position: fixed;
+    width: 100%;
+    /* Preserve scroll position so page doesn't jump to top */
+    top: calc(-1 * var(--scroll-y, 0px));
 }
 
 /* ---- Tap highlight color (iOS/Android) ---- */
@@ -2324,9 +2337,10 @@ a, button {
    iOS SPECIFIC FIXES
    ============================================ */
 
-/* iOS rubber-band scroll prevention */
-body { overscroll-behavior-y: none; }
-.cart-items, .admin-main, .modal-body { overscroll-behavior: contain; }
+/* iOS rubber-band scroll prevention — only on specific containers, NOT body */
+.cart-items { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.modal-body  { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.nav-links   { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 
 /* iOS input zoom prevention (font-size must be >= 16px) */
 @media (max-width: 768px) {
